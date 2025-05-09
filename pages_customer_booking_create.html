@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Slot - Pool Party</title>
+  <link rel="stylesheet" href="css_style.css" />
+  <link rel="stylesheet" href="css_customer_booking_create.css" />
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+    <div class="main-content booking-container">
+        <h1>Book Your Slot</h1>
+
+        <div class="booking-time-section">
+            <label for="booking-date">Booking Date:</label>
+            <input type="date" id="booking-date" required />
+
+            <label for="slot-start">Slot Start:</label>
+            <select id="slot-start"></select>
+
+            <label for="slot-end">Slot End:</label>
+            <select id="slot-end"></select>
+        </div>
+
+        <div id="customer-cards-container">
+            <!-- Cards will be inserted here dynamically -->
+        </div>
+
+        <button id="add-person-btn">+ Add Person</button>
+        <button id="submit-booking-btn">Submit Booking</button>
+
+        <p id="error-message" class="error"></p>
+    </div>>
+
+  <script type="module" src="js_components_navbar.js" defer></script>
+  <script type="module" src="js_customer_booking_create.js" defer></script>
+</body>
+</html>

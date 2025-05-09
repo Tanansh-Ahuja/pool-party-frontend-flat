@@ -1,0 +1,74 @@
+body {
+    background-color: #f3f3f3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 1rem;
+    margin-top: 60px; /* Add a margin top to make space for the fixed navbar */
+    align-items: center;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#booking-date {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+#fetch-bookings-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#fetch-bookings-btn:hover {
+    background-color: #0056b3;
+}
+
+.booking-card {
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+.booking-card p {
+    margin: 0.25rem 0;
+}
+
+.booking-card button {
+    margin: 6px 4px;
+    padding: 6px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .booking-card button.cancel-booking-btn {
+    background-color: #dc3545;
+  }
+  
+  .booking-card button:hover {
+    opacity: 0.9;
+  }
+  

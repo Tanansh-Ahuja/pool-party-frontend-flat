@@ -1,0 +1,112 @@
+/* General Page Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 1rem;
+    background-color: #f7f7f7;
+  }
+
+  /* Booking Time Section */
+  .booking-time-section {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-time-section label {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .booking-time-section input,
+  .booking-time-section select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  /* Customer Card */
+  .customer-card {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Input Fields in Cards */
+  .customer-card label {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .customer-card input,
+  .customer-card select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  /* Buttons */
+  #add-person-btn , #submit-booking-btn, .delete-btn {
+    padding: 0.75rem 1.2rem;
+    margin: 1rem 0.5rem 0 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #2196f3;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #1976d2;
+  }
+  
+  .delete-person-btn {
+    background-color: #e53935;
+    margin-top: 1rem;
+  }
+  
+  .delete-person-btn:hover {
+    background-color: #c62828;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .booking-time-section,
+    .customer-card {
+      padding: 0.75rem;
+    }
+
+    #add-person-btn , #submit-booking-btn
+    {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  
+    .customer-card input,
+    .customer-card select {
+      font-size: 1rem;
+    }
+  
+    .customer-card h3 {
+      font-size: 1rem;
+    }
+  }
+  

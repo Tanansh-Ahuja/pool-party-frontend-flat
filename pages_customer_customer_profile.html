@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Profile</title>
+  <link rel="stylesheet" href="css_style.css" />
+  <link rel="stylesheet" href="css_customer_customer_profile.css" />
+</head>
+<body>
+  <!-- Include Navbar -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="main-class profile-container">
+    <h2>Your Profile</h2>
+    <form id="profile-form">
+      <input type="text" name="customer_id" id="customer_id" placeholder="Customer Id" required disabled />
+      <input type="text" name="full_name" id="full_name" placeholder="Full Name" required disabled />
+      <input type="text" name="mobile_number" id="mobile_number" placeholder="Mobile Number" required disabled />
+      <input type="email" name="email" id="email" placeholder="Email" required disabled />
+      <select name="gender" id="gender" required disabled>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="number" name="age" id="age" placeholder="Age" required disabled />
+      <input type="text" name="username" id="username" placeholder="Username" required disabled />
+
+      <div class="buttons">
+        <button type="button" id="edit-btn">Edit</button>
+        <button type="submit" id="save-btn" disabled>Save Changes</button>
+        
+      </div>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+    </form>
+    <p id="message"></p>
+  </div>
+
+  <script type="module" src="js_components_navbar.js"></script>
+  <script type="module" src="js_customer_customer_profile.js"></script>
+</body>
+</html>

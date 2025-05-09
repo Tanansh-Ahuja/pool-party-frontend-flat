@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup - Pool Party</title>
+  <link rel="stylesheet" href="css_style.css" />
+  <link rel="stylesheet" href="css_signup.css" />
+</head>
+<body>
+<!-- Navbar will be injected -->
+<div id="navbar-placeholder"></div>
+  <div class="form-container">
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+      <input type="text" name="full_name" placeholder="Full Name" required />
+      <input type="text" name="mobile_number" placeholder="Mobile Number" required />
+      <input type="email" name="email" placeholder="Gmail ID" required />
+      <select name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="number" name="age" placeholder="Age" required min="1" />
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="index.html">Log in</a></p>
+  </div>
+  
+  <script type="module" src="js_auth_signup.js" defer></script>
+  <script type="module" src="js_components_navbar.js"></script>
+</body>
+</html>

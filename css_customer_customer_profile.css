@@ -1,0 +1,101 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 60px; /* Add a margin top to make space for the fixed navbar */
+}
+ 
+.profile-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  margin-top: 2rem;
+}
+  
+  .profile-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #0072ff;
+  }
+  
+  .profile-container input,
+  .profile-container select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .profile-container input:focus,
+  .profile-container select:focus {
+    border-color: #0072ff;
+    outline: none;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .logout-btn {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .logout-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  
+  #edit-btn {
+    background-color: #00b4d8;
+    color: white;
+  }
+  
+  #edit-btn:hover {
+    background-color: #0096c7;
+  }
+  
+  #save-btn {
+    background-color: #0072ff;
+    color: white;
+  }
+  
+  #save-btn:hover {
+    background-color: #005ecf;
+  }
+  
+  #message {
+    text-align: center;
+    margin-top: 1rem;
+    color: green;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,44 @@
+/* view_revenue.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  padding: 1rem;
+  margin-top: 60px; /* Add a margin top to make space for the fixed navbar */
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="date"] {
+    padding: 8px;
+    margin: 10px 0;
+    width: 100%;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  button:hover {
+    background: #45a049;
+  }
+  
+  #revenue-result {
+    font-size: 18px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  

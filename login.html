@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Pool Party</title>
+  <link rel="stylesheet" href="css_style.css">
+  <link rel="stylesheet" href="css_index_login.css">
+</head>
+<body>
+  <!-- Navbar will be injected -->
+  <div id="navbar-placeholder"></div>
+  <main class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="email" placeholder="Email" name="email" required>
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Password" required>
+        <span class="toggle-password" id="toggle-password">👁️</span>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+  </main>
+
+  <script type="module" src="js_components_navbar.js"></script>
+  <script src="js_auth_login.js" type="module"></script>
+</body>
+</html>
