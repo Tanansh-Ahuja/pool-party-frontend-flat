@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pool Party</title>
+  <title>Pool Party - Dashboard</title>
   <link rel="stylesheet" href="css_style.css">
   <link rel="stylesheet" href="css_customer_index.css">
 </head>
 <body>
   <div id="navbar-placeholder"></div>
 
-  <!-- Main content -->
   <div id="greeting"></div>
 
   <div class="main-content">
-    <h1>Welcome to Pool-Party</h1>
-    <p>This is the official website of Pool Party Roorkee. It's still under construction but you can use it for bookings.</p>
-    <br>
-    <p>Please wait for 3 to 5 seconds after clicking a button as the website is slow for the time being</p>
+    <h1>Welcome to Pool Party 🏊</h1>
+    <p>Roorkee's favorite swimming destination.</p>
 
-    <div id="stats">
-      <p><strong>Swimming Minutes:</strong> <span id="swim-mins">0</span></p>
-      <p><strong>Estimated Calories Burned:</strong> <span id="calories">0</span> kcal</p>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon">⏱</div>
+        <div class="stat-label">Swimming Minutes</div>
+        <div class="stat-value" id="swim-mins">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-label">Calories Burnt</div>
+        <div class="stat-value" id="calories">0</div>
+      </div>
+    </div>
+
+    <div id="upcoming-bookings" class="card">
+      <h2>📅 Upcoming Bookings</h2>
+      <ul id="booking-list">
+        <li>Loading bookings...</li>
+      </ul>
+    </div>
+
+    <div class="notices card">
+      <h2>📢 Announcements</h2>
+      <ul id="notice-list">
+        <li>Loading notices...</li>
+      </ul>
+    </div>
+
+    <div class="quick-actions">
+      <a href="pages_customer_booking_create.html" class="action-btn">Book a Slot</a>
+      <a href="pages_customer_customer_profile.html" class="action-btn">View Profile</a>
     </div>
   </div>
 

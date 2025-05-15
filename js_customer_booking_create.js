@@ -1,5 +1,6 @@
 // booking_create.js
 import { BASE_URL } from "/js_config.js";
+import { is_token_expired } from "./js_utils_auth.js";
 
 const customerCardsContainer = document.getElementById("customer-cards-container");
 const addPersonBtn = document.getElementById("add-person-btn");
@@ -13,7 +14,7 @@ const errorMessage = document.getElementById("error-message");
 ////////////////EVENT LISTNERS///////////////////////////
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("access_token");
-  if (!token) {
+  if (!token || is_token_expired(token)) {
     window.location.href = "/login.html";
     return;
   }

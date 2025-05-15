@@ -1,14 +1,14 @@
 import { BASE_URL } from "/js_config.js";
+import { is_token_expired } from "./js_utils_auth.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     const token = localStorage.getItem("access_token");
     const messageEl = document.getElementById("message");
   
-    if (!token) {
-      alert("Please log in first.");
-      window.location.href = "/index.html";
-      return;
-    }
+    if (!token || is_token_expired(token)) {
+    window.location.href = "/login.html";
+    return;
+  }
   
     const fields = ["full_name", "mobile_number", "email", "gender", "age"];
     const inputs = {};

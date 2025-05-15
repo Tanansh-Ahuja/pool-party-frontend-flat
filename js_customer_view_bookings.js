@@ -1,11 +1,12 @@
 import { BASE_URL } from "/js_config.js";
+import { is_token_expired } from "./js_utils_auth.js";
 
 let currentPage = 0;
 const limit = 10;
 
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("access_token");
-  if (!token) {
+  if (!token || is_token_expired(token)) {
     window.location.href = "/login.html";
     return;
   }

@@ -1,4 +1,4 @@
-import { BASE_URL } from "./js_config.js";
+import { is_token_expired } from "./js_utils_auth.js";
 
 export async function loadNavbar() {
   const navbarPlaceholder = document.getElementById("navbar-placeholder");
@@ -115,19 +115,4 @@ function localStorage_removeItems()
     localStorage.removeItem("email");
     localStorage.removeItem("role");
   }
-}
-
-async function is_token_expired(token)
-{
-  const headers = {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      };
-      const userRes = await fetch(`${BASE_URL}/customers/me`, {
-        headers,
-      });
-
-      if (!userRes.ok) throw new Error("Invalid token");
-
-      const user = await userRes.json();
 }
