@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pool Party</title>
   <link rel="stylesheet" href="css_style.css">
@@ -10,20 +10,80 @@
 <body>
   <div id="navbar-placeholder"></div>
 
-  <!-- Main content -->
-  <div id="greeting"></div>
-
-  <div class="main-content">
-    <h1>Welcome to Pool-Party</h1>
-    <p>This is the official website of Pool Party Roorkee. It's still under construction but you can use it for bookings.</p>
-    <br>
-    <p>Please wait for 3 to 5 seconds after clicking a button as the website is slow for the time being</p>
-
-    <div id="stats">
-      <p><strong>Swimming Minutes:</strong> <span id="swim-mins">0</span></p>
-      <p><strong>Estimated Calories Burned:</strong> <span id="calories">0</span> kcal</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="assets_images_swimming-pool-hero-3.jpg" alt="Pool Party" class="hero-image">
+    <div class="hero-text">
+      <h1>Welcome to Pool Party</h1>
+      <p>Make a splash at Roorkee's favorite swimming destination!</p>
+      <a href="pages_customer_booking_create.html" class="book-now-btn">Book Now</a>
     </div>
-  </div>
+  </section>
+
+  
+
+  <!-- Quick Info Section -->
+  <section class="quick-info">
+    <div class="info-card">
+      <span>🕒</span>
+      <p>8 AM – 10 PM</p>
+    </div>
+    <div class="info-card">
+      <span>💰</span>
+      <p>₹100 Entry / Hour</p>
+    </div>
+    <div class="info-card">
+      <span>📍</span>
+      <p><a href="https://maps.app.goo.gl/GiSRhqduRSHbReDF7" target="_blank" class="location-link">Pool Party, RamNagar, Roorkee</a></p>
+    </div> 
+    <div class="info-card">
+      <span>📞</span>
+      <p><a href="tel:+918909726926" class="telephone-link">Call Us</a></p>
+    </div>
+  </section>
+
+  <!-- Notices -->
+  <section class="notices">
+    <div class="section-container">
+      <h2>📢 Announcements</h2>
+      <ul id="notice-list">
+        <li>Loading notices...</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <h2>📸 Pool Highlights</h2>
+    <div class="gallery-scroll">
+      <img src="assets_images_swimming-pool-1.jpg" alt="Fun at Pool">
+      <img src="assets_images_swimming-pool-2.jpg" alt="Kids Swimming">
+      <img src="assets_images_swimming-pool-3.jpg" alt="Water Fun">
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>✅ Clean & Safe Environment</li>
+      <li>✅ Swimwear & Tube Rentals Available</li>
+      <li>✅ Family & Kids Friendly</li>
+    </ul>
+  </section>
+
+  <!-- Optional Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Visitors Say</h2>
+    <blockquote>"Best place in town to beat the heat!" – Priya S.</blockquote>
+    <blockquote>"Clean water, good staff, loved it." – Amit R.</blockquote>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Pool Party Roorkee</p>
+    <p>Made with ❤️ by Tanansh Ahuja</p>
+  </footer>
 
   <script type="module" src="js_components_navbar.js"></script>
   <script type="module" src="js_main.js"></script>

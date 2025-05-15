@@ -51,9 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("username",user.username);
             localStorage.setItem("email",user.email);
             localStorage.setItem("role",user.role);
-            window.location.href = "/index.html"; // redirect to next page
+            window.location.href = "/pages_customer_index.html"; // redirect to next page
           } else {
             // Temporary fallback for admins
+            localStorage.setItem("customer_id",user.customer_id);
             localStorage.setItem("full_name",user.full_name);
             localStorage.setItem("username",user.username);
             localStorage.setItem("email",user.email);

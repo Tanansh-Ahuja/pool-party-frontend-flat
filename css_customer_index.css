@@ -1,0 +1,32 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 60px; /* Add a margin top to make space for the fixed navbar */
+}
+ 
+
+#greeting {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.user-greeting {
+  font-size: 1.5rem;
+  color: #1e88e5;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#stats {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #f0f8ff;
+  border-left: 4px solid #2196f3;
+  border-radius: 5px;
+  font-size: 1rem;
+}
