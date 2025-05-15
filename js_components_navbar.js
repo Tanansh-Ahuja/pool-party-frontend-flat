@@ -24,13 +24,21 @@ export async function loadNavbar() {
 
     const token = localStorage.getItem("access_token");
 
-if (!token) {
+if (isHomePage && !token) {
   localStorage_removeItems();  // remove token, role, etc.
   navLinks.innerHTML = `
-    <a href="/index.html">Home</a>
+    <a href="/signup.html">Signup</a>
     <a href="/login.html">Login</a>
   `;
 } else if(isHomePage && await is_token_expired(token))
+{
+  localStorage_removeItems();
+  navLinks.innerHTML = `
+    <a href="/signup.html">Signup</a>
+    <a href="/login.html">Login</a>
+  `;
+}
+else if(!token)
 {
   localStorage_removeItems();
   navLinks.innerHTML = `
