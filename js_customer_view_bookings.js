@@ -4,12 +4,17 @@ import { is_token_expired } from "./js_utils_auth.js";
 let currentPage = 0;
 const limit = 10;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",async () => {
   const token = localStorage.getItem("access_token");
-  if (!token || is_token_expired(token)) {
+  if (!token || await is_token_expired(token)) {
     window.location.href = "/login.html";
     return;
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("access_token");
+  
   if (localStorage.getItem("role")!="customer") {
       alert("You Are not authorised to view this page");
       window.location.href = "/index.html";

@@ -12,9 +12,9 @@ const errorMessage = document.getElementById("error-message");
 
 //////////////////////////////////////////////////////////
 ////////////////EVENT LISTNERS///////////////////////////
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",async () => {
   const token = localStorage.getItem("access_token");
-  if (!token || is_token_expired(token)) {
+  if (!token || await is_token_expired(token)) {
     window.location.href = "/login.html";
     return;
   }

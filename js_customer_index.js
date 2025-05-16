@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   fetchNotices(token);
-  fetchBookings(token);
+  //fetchBookings(token);
 });
 
 async function fetchNotices(token) {

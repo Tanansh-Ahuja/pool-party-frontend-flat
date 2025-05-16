@@ -1,12 +1,16 @@
 // view_revenue.js
 import { BASE_URL } from "/js_config.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",async () => {
   const token = localStorage.getItem("access_token");
-  if (!token) {
+  if (!token || await is_token_expired(token)) {
     window.location.href = "/login.html";
     return;
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("access_token");
   if (localStorage.getItem("role")!="admin") {
       alert("You Are not authorised to view this page");
       window.location.href = "/index.html";

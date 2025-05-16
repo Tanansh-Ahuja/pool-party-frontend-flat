@@ -1,14 +1,18 @@
 import { BASE_URL } from "/js_config.js";
 import { is_token_expired } from "./js_utils_auth.js";
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const token = localStorage.getItem("access_token");
-    const messageEl = document.getElementById("message");
-  
-    if (!token || is_token_expired(token)) {
+
+document.addEventListener("DOMContentLoaded",async () => {
+  const token = localStorage.getItem("access_token");
+  if (!token || await is_token_expired(token)) {
     window.location.href = "/login.html";
     return;
   }
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem("access_token");
+    const messageEl = document.getElementById("message");
   
     const fields = ["full_name", "mobile_number", "email", "gender", "age"];
     const inputs = {};
