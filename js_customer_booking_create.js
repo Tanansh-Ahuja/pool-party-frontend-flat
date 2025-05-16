@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded",async () => {
     return;
   }
 });
+
 bookingDateInput.addEventListener("change", () => {
   const selectedDate = new Date(bookingDateInput.value);
   const now = new Date();
@@ -38,12 +39,13 @@ bookingDateInput.addEventListener("change", () => {
     const roundedMinutes = Math.ceil(now.getMinutes() / 10) * 10;
     minStartTime.setMinutes(roundedMinutes);
   }
-
+  
   generateSlotOptions(slotStartSelect, minStartTime);
 
   // Clear slot-end until start is chosen
   slotEndSelect.innerHTML = "<option value=''>Select end time</option>";
 });
+
 slotStartSelect.addEventListener("change", () => {
   if (!slotStartSelect.value) return;
 
@@ -51,8 +53,9 @@ slotStartSelect.addEventListener("change", () => {
   const [hours, minutes] = slotStartSelect.value.split(":").map(Number);
 
   const minEndTime = new Date(selectedDate);
-  minEndTime.setHours(hours, minutes + 10, 0, 0); // 10 mins after start
-
+  minEndTime.setHours(hours, minutes + 30, 0, 0); // 30 mins after start
+  
+  
   generateSlotOptions(slotEndSelect, minEndTime);
 });
 // Add new person
@@ -122,7 +125,7 @@ submitBookingBtn.addEventListener("click", async () => {
     if (!res.ok) throw new Error("Booking failed.");
 
     alert("Booking successful!");
-    window.location.href = "/index.html";
+    window.location.href = "/pages_customer_index.html";
   } catch (err) {
     console.error("Booking error:", err);
     alert("Something went wrong. Try again.");
@@ -140,10 +143,11 @@ function formatTimeAMPM(date) {
   minutes = minutes.toString().padStart(2, "0");
   return `${hours}:${minutes} ${ampm}`;
 }
+
 function generateSlotOptions(selectElement, minTime) {
   selectElement.innerHTML = "";
-  const endTime = new Date();
-  endTime.setHours(23, 0, 0, 0); // 11:00 PM
+  const endTime = new Date(minTime);
+  endTime.setHours(22, 0, 0, 0); // 10:00 PM
 
   const current = new Date(minTime); // clone to avoid mutation
   while (current <= endTime) {
@@ -151,23 +155,15 @@ function generateSlotOptions(selectElement, minTime) {
     option.value = current.toTimeString().slice(0,5); // "HH:MM" for backend
     option.textContent = formatTimeAMPM(current);     // "HH:MM AM/PM" for UI
     selectElement.appendChild(option);
-    current.setMinutes(current.getMinutes() + 10);
-  }
-}
 
-// Generate time options from 8:00 AM to 9:00 PM with 10-minute intervals
-function generateTimeOptions(selectElement) {
-  selectElement.innerHTML = "";
-  const start = new Date();
-  start.setHours(8, 0, 0, 0);
-  for (let i = 0; i <= 78; i++) {
-    const hours = start.getHours().toString().padStart(2, '0');
-    const minutes = start.getMinutes().toString().padStart(2, '0');
-    const option = document.createElement("option");
-    option.value = `${hours}:${minutes}`;
-    option.textContent = `${hours}:${minutes}`;
-    selectElement.appendChild(option);
-    start.setMinutes(start.getMinutes() + 10);
+    if(selectElement === document.getElementById("slot-start"))
+    {
+      current.setMinutes(current.getMinutes() + 10);
+    }
+    else
+    {
+      current.setMinutes(current.getMinutes() + 30);
+    } 
   }
 }
 
@@ -253,11 +249,11 @@ function validateDateTime() {
   return true;
 }
 
-
-
 // Init on load
 window.addEventListener("DOMContentLoaded", () => {
-  generateTimeOptions(slotStartSelect);
-  generateTimeOptions(slotEndSelect);
+  // Set default placeholders only
+  slotStartSelect.innerHTML = "<option value=''>Select time</option>";
+  slotEndSelect.innerHTML = "<option value=''>Select time</option>";
+  
   createCustomerCard(0);
 });

@@ -1,3 +1,5 @@
+
+
 async function loadNotices() {
   const noticeList = document.getElementById("notice-list");
   noticeList.innerHTML = "<li>Loading notices...</li>";
