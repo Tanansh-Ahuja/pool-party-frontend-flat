@@ -1,5 +1,18 @@
 import { BASE_URL } from "/js_config.js";
 
+document.addEventListener("DOMContentLoaded", function () {
+    const role = localStorage.getItem("role");
+    
+    // If role is found in localStorage, assume user is logged in
+    if (role) {
+      if (role === "customer") {
+        window.location.href = "pages_customer_index.html";
+      } else if (role === "admin") {
+        window.location.href = "pages_admin_index.html"; // Optional, if admin dashboard exists
+      }
+    }
+  });
+
 async function loadNotices() {
   const noticeList = document.getElementById("notice-list");
   noticeList.innerHTML = "<li>Loading notices...</li>";

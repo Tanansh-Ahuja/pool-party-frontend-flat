@@ -1,5 +1,6 @@
 // view_revenue.js
 import { BASE_URL } from "/js_config.js";
+import { is_token_expired } from "./js_utils_auth.js";
 
 document.addEventListener("DOMContentLoaded",async () => {
   const token = localStorage.getItem("access_token");

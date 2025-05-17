@@ -1,0 +1,98 @@
+.page-wrapper {
+  margin-top: 80px; /* Adjust based on your actual navbar height */
+}
+
+.create-notice-box {
+  margin: 20px 0;
+}
+
+#create-notice-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#create-notice-form input,
+#create-notice-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#create-notice-form button {
+  width: fit-content;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#show-create-form-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.notice-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.notice-card {
+  background-color: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.notice-card input[type="text"],
+.notice-card textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.notice-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.notice-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.notice-buttons .edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.notice-buttons .submit-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+.notice-buttons .delete-btn {
+  background-color: #f44336;
+  color: white;
+}
