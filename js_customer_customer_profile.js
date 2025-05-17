@@ -14,7 +14,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const token = localStorage.getItem("access_token");
     const messageEl = document.getElementById("message");
   
-    const fields = ["full_name", "mobile_number", "email", "gender", "age"];
+    const username = localStorage.getItem("username");
+    const fields = ["full_name", "phone_number", "email", "gender", "age"];
+
+    if (!username || username === "null") {
+      fields.push("username");
+    }
+    
     const inputs = {};
     fields.forEach((field) => {
       inputs[field] = document.getElementById(field);
@@ -30,6 +36,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
       saveBtn.style.display = editable ? "inline-block" : "none";
       editBtn.style.display = editable ? "none" : "inline-block";
+      saveBtn.disabled = !editable;
+      editBtn.disabled = editable;
     }
   
     setEditable(false);
@@ -46,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const data = await res.json();
       inputs["full_name"].value = data.full_name;
-      inputs["mobile_number"].value = data.phone_number;
+      inputs["phone_number"].value = data.phone_number;
       inputs["email"].value = data.email;
       inputs["gender"].value = data.gender;
       inputs["age"].value = data.age;
@@ -63,29 +71,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     editBtn.addEventListener("click", () => {
       setEditable(true);
       messageEl.textContent = "Please edit the values and save";
-      saveBtn.disabled = false;
-      editBtn.disabled = true;
     });
   
     // Save button click
     saveBtn.addEventListener("click", async () => {
-      const updatedData = {};
-      fields.forEach((field) => {
-        updatedData[field] = inputs[field].value;
-      });
-      console.log("Updated data: ",updatedData);
+      const updatedData = sanitizeAndConvert(inputs, fields);
+
       try {
+        
         const res = await fetch(`${BASE_URL}/customers/UpdateMe`, {
           method: "PUT",
-          headers,
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
           body: JSON.stringify(updatedData),
         });
         if (!res.ok) throw new Error("Update failed.");
         messageEl.textContent = "Profile updated successfully!";
         messageEl.style.color = "green";
         setEditable(false);
-        saveBtn.disabled = true;
-        editBtn.disabled = false;
+        
       } catch (err) {
         console.error(err);
         messageEl.textContent = "Failed to update profile.";
@@ -93,9 +99,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   });
-  
+  function sanitizeAndConvert(inputs, fields) {
+  const data = {};
+  fields.forEach((field) => {
+    const value = inputs[field].value.trim();
+
+    if (value === "") return; // Skip empty values
+
+    if (field === "age" || field === "swimmingminutes") {
+      const num = parseInt(value);
+      if (!isNaN(num)) data[field] = num;
+    } else {
+      data[field] = value;
+    }
+  });
+  return data;
+}
   document.getElementById("logout-btn").addEventListener("click", () => {
-    console.log("In logout button");
     localStorage.removeItem("access_token"); // Clear the JWT token
     window.location.href = "/index.html"; // Redirect to login page
   });

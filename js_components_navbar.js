@@ -51,7 +51,7 @@ else{
   const role = localStorage.getItem("role");
   if (role === "customer") {
     navLinks.innerHTML = `
-      <a href="index.html">Home</a>
+      <a href="pages_customer_index.html">Home</a>
       <a href="pages_customer_booking_create.html">Book Now</a>
       <a href="pages_customer_view_bookings.html">Bookings</a>
       <a href="pages_customer_customer_profile.html">Profile</a>

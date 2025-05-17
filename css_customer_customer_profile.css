@@ -35,6 +35,12 @@ body {
     font-size: 1rem;
     transition: border-color 0.3s;
   }
+  form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+  color: #333;
+}
   
   .profile-container input:focus,
   .profile-container select:focus {

@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pool Party</title>
-  <link rel="stylesheet" href="css_style.css">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css_style.css" />
+  <link rel="stylesheet" href="css_admin_admin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div id="navbar-placeholder"></div>
 
-  <!-- Main content -->
-  <div class="main-content">
-    <h1>Hello Admin</h1>
-    <p>Use the Links in the Navigation bar above to go to specific pages.</p>
+  <div class="dashboard-container">
+    <h2 id="welcome-message">Welcome, Admin</h2>
+
+    <section class="summary-widgets">
+      <div class="widget" id="bookings-today">Bookings Today: --</div>
+      <div class="widget" id="revenue-summary">
+        <p>Revenue Today: ₹--</p>
+        <p>This Week: ₹--</p>
+        <p>This Month: ₹--</p>
+      </div>
+      <div class="widget" id="book-now">
+        <button onclick="location.href='admin_bookings.html'">Book Now</button>
+      </div>
+    </section>
+
+    <section class="notices-section">
+      <h3>Notices</h3>
+      <div id="notices-list"></div>
+    </section>
+
+    <section class="unpaid-bookings-section">
+      <h3>Unpaid Bookings (View Only)</h3>
+      <div id="unpaid-bookings-list"></div>
+    </section>
+
+    <section class="recent-activity-section">
+      <h3>Recent Pending Bookings</h3>
+      <div id="recent-bookings-list"></div>
+    </section>
+
+    <section class="revenue-chart-section">
+      <h3>Daily Revenue Overview</h3>
+      <canvas id="revenue-chart" height="100"></canvas>
+    </section>
   </div>
 
   <script type="module" src="js_components_navbar.js"></script>
+  <script type="module" src="js_admin_admin.js"></script>
 </body>
 </html>

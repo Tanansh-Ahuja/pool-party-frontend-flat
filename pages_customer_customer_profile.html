@@ -14,24 +14,37 @@
   <div class="main-class profile-container">
     <h2>Your Profile</h2>
     <form id="profile-form">
+      <label for="customer_id">Customer ID</label>
       <input type="text" name="customer_id" id="customer_id" placeholder="Customer Id" required disabled />
+
+      <label for="full_name">Full Name</label>
       <input type="text" name="full_name" id="full_name" placeholder="Full Name" required disabled />
-      <input type="text" name="mobile_number" id="mobile_number" placeholder="Mobile Number" required disabled />
+
+      <label for="phone_number">Mobile Number</label>
+      <input type="text" name="phone_number" id="phone_number" placeholder="Mobile Number" required disabled />
+
+      <label for="email">Email</label>
       <input type="email" name="email" id="email" placeholder="Email" required disabled />
+
+      <label for="gender">Gender</label>
       <select name="gender" id="gender" required disabled>
         <option value="">Select Gender</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Other">Other</option>
       </select>
+
+      <label for="age">Age</label>
       <input type="number" name="age" id="age" placeholder="Age" required disabled />
+
+      <label for="username">Username</label>
       <input type="text" name="username" id="username" placeholder="Username" required disabled />
 
       <div class="buttons">
         <button type="button" id="edit-btn">Edit</button>
-        <button type="submit" id="save-btn" disabled>Save Changes</button>
-        
+        <button type="button" id="save-btn" disabled>Save Changes</button>
       </div>
+
       <button id="logout-btn" class="logout-btn">Logout</button>
     </form>
     <p id="message"></p>
@@ -41,3 +54,5 @@
   <script type="module" src="js_customer_customer_profile.js"></script>
 </body>
 </html>
+
+
