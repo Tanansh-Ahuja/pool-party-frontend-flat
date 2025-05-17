@@ -16,34 +16,36 @@ document.addEventListener("DOMContentLoaded", function () {
       const confirmPassword = form.confirm_password.value.trim();
   
       // Basic validation
-      if (!ufull_name || !umobile_number || !uemail || !ugender || !uage || !uusername || !upassword) {
-        alert("Please fill out all fields.");
+      if (!ufull_name || !umobile_number || !upassword) {
+        alert("Please fill out all required fields.");
         return;
       }
 
       // Password strength check
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (!passwordRegex.test(upassword)) {
-      alert("Password must be at least 8 characters long and contain both letters and numbers.");
-      return;
-    }
+        if (upassword.length < 4) {
+        alert("Password or PIN must be at least 4 characters long.");
+        return;
+      }
 
     // Confirm password check
     if (upassword !== confirmPassword) {
-      alert("Passwords do not match.");
+      alert("Passwords or PIN do not match.");
       return;
     }
   
       const payload = {
         full_name: ufull_name,
-        phone_number : umobile_number,
-        email: uemail,
-        gender : ugender,
-        age: parseInt(uage),
-        username: uusername,
+        phone_number: umobile_number,
         password: upassword,
-        role: "customer", // Defaulting role to customer
+        role: "customer",
       };
+
+      // Only add optional fields if filled
+      if (uemail) payload.email = uemail;
+      if (uusername) payload.username = uusername;
+      if (ugender) payload.gender = ugender;
+      if (uage) payload.age = parseInt(uage);
+
       console.log(payload);
       try {
         const response = await fetch(`${BASE_URL}/auth/signup`, {

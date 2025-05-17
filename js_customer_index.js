@@ -26,29 +26,37 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function fetchNotices(token) {
-  try {
-    const res = await fetch(`${BASE_URL}/notices`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-
-    const data = await res.json();
-    const noticeList = document.getElementById("notice-list");
-    noticeList.innerHTML = "";
-
-    if (data.length === 0) {
-      noticeList.innerHTML = `<li>Please stay safe and take precautions.</li>`;
-    } else {
-      data.forEach(notice => {
-        const li = document.createElement("li");
-        li.textContent = notice.message || notice.text;
-        noticeList.appendChild(li);
-      });
+  const noticeList = document.getElementById("notice-list");
+    noticeList.innerHTML = "<li>Loading notices...</li>";
+  
+    try {
+      const response = await fetch(`${BASE_URL}/notices/`);
+      const data = await response.json();
+      console.log(data);
+      noticeList.innerHTML = ""; // Clear old content
+  
+      if (Array.isArray(data) && data.length > 0) {
+        data.forEach(notice => {
+          const li = document.createElement("li");
+  
+          // Create bold title and normal content
+          const title = document.createElement("strong");
+          title.textContent = notice.title || "Notice";
+  
+          const content = document.createTextNode(` - ${notice.content || "No details provided."}`);
+  
+          // Append both to the <li>
+          li.appendChild(title);
+          li.appendChild(content);
+          noticeList.appendChild(li);
+        });
+      } else {
+        noticeList.innerHTML = "<li>Please stay safe and take precautions.</li>";
+      }
+    } catch (error) {
+      console.error("Error loading notices:", error);
+      noticeList.innerHTML = "<li>Please stay safe and take precautions.</li>";
     }
-  } catch (err) {
-    console.error("Failed to fetch notices:", err);
-    document.getElementById("notice-list").innerHTML =
-      "<li>Unable to load notices at the moment.</li>";
-  }
 }
 
 async function fetchBookings(token) {

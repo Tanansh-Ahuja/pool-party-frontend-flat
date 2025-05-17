@@ -13,11 +13,17 @@
   <main class="login-container">
     <h2>Login</h2>
     <form id="login-form">
-      <input type="email" placeholder="Email" name="email" required>
+      <p>Please enter either your Email or Mobile Number to login.</p>
+
+      <input type="email" placeholder="Email (optional)" name="email" id="email">
+
+      <input type="tel" placeholder="Mobile Number (optional)" name="phone" id="phone" pattern="[0-9]{10}">
+
       <div class="password-container">
-        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="password" placeholder="Password or PIN (min 4 characters)" required>
         <span class="toggle-password" id="toggle-password">👁️</span>
       </div>
+
       <button type="submit">Login</button>
     </form>
     <p>Don't have an account? <a href="signup.html">Sign Up</a></p>

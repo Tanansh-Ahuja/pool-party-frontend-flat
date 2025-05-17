@@ -13,6 +13,16 @@
   }
  
   /* Form Container */
+  form input::placeholder,
+  form select {
+    font-size: 0.95rem;
+  }
+
+  /* Optional fields lighter */
+  input[placeholder*="optional"],
+  select option[value=""] {
+    color: #8a8a8a;
+  }
   .form-container {
     background-color: #fff;
     padding: 2rem;

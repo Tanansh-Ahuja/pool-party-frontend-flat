@@ -17,13 +17,33 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
   
       const uemail = form.email.value;
+      const uphone = document.getElementById("phone").value.trim();
       const upassword = form.password.value;
-  
+
+      // Check for required conditions
+      if (!uemail && !uphone) {
+        alert("Please enter either email or mobile number.");
+        return;
+      }
+
+      if (passwordInput.length < 4) {
+        alert("Password or PIN must be at least 4 characters long.");
+        return;
+      }
+
+      let loginPayload = { password: upassword };
+
+      if (uemail) {
+        loginPayload.email = uemail;
+      } else {
+        loginPayload.phone_number = uphone;
+      }
+      console.log(loginPayload);
       try {
         const response = await fetch(`${BASE_URL}/auth/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email:uemail, password:upassword }),
+          body: JSON.stringify(loginPayload),
         });
   
         const data = await response.json();
