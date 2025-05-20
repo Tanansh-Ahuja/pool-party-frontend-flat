@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const headers = { Authorization: `Bearer ${token}` };
 
   async function fetchSummary() {
-    const res = await fetch(`${BASE_URL}/dashboard/summary`, { headers });
+    const res = await fetch(`${BASE_URL}/earnings/summary`, { headers });
     const data = await res.json();
     document.getElementById("bookings-today").textContent = `Bookings Today: ${data.todays_bookings}`;
     document.getElementById("revenue-summary").innerHTML = `
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Load all dashboard components
-  //await fetchSummary();
+  await fetchSummary();
   await fetchNotices();
   //await fetchUnpaidBookings();
   //await fetchRecentPendingBookings();
