@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (role === "customer") {
         window.location.href = "pages_customer_index.html";
       } else if (role === "admin") {
-        window.location.href = "pages_admin_index.html"; // Optional, if admin dashboard exists
+        window.location.href = "pages_admin_admin.html"; // Optional, if admin dashboard exists
       }
     }
   });
