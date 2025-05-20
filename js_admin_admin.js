@@ -51,22 +51,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     bookings.forEach(booking => {
       const div = document.createElement("div");
       div.className = "booking-card";
-      div.innerHTML = `<p>${booking.customer_name} - ₹${booking.amount_due} - ${booking.date}</p>`;
+      div.innerHTML = `<p>Booking id: ${booking.booking_id} - Amount: ₹${booking.total_amount} - Customer Name: ${booking.customer_name}</p>`;
       container.appendChild(div);
     });
   }
 
-  async function fetchRecentPendingBookings() {
-    const res = await fetch(`${BASE_URL}/bookings/recent-pending`, { headers });
-    const bookings = await res.json();
-    const container = document.getElementById("recent-bookings-list");
-    container.innerHTML = "";
-    bookings.forEach(booking => {
-      const div = document.createElement("div");
-      div.className = "booking-card";
-      div.innerHTML = `<p>${booking.customer_name} - ₹${booking.amount_due} - ${booking.date}</p>`;
-      container.appendChild(div);
-    });
+  async function fetchOverstayedBookings() {
+  const res = await fetch(`${BASE_URL}/bookings/overstayed`, { headers });
+  const bookings = await res.json();
+  const container = document.getElementById("overstayed-bookings-list");
+  container.innerHTML = "";
+  bookings.forEach(booking => {
+    const div = document.createElement("div");
+    div.className = "booking-card";
+    div.innerHTML = `<p>${booking.customer_name} - Slot Ended: ${booking.slot_end} - ${booking.booking_date}</p>`;
+    container.appendChild(div);
+  });
   }
 
   async function loadChart() {
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Load all dashboard components
   await fetchSummary();
   await fetchNotices();
-  //await fetchUnpaidBookings();
-  //await fetchRecentPendingBookings();
+  await fetchUnpaidBookings();
+  await fetchOverstayedBookings();
   //await loadChart();
 });
