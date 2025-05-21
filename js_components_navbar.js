@@ -68,6 +68,7 @@ else{
       <a href="pages_customer_booking_create.html">Book Now</a>
       <a href="pages_admin_view_bookings.html">View Bookings</a>
       <a href="pages_admin_view_revenue.html">View Revenue</a>
+      <a href="pages_admin_overstayed.html">View overstayed</a>
       <a href="pages_admin_notices.html">View Notices</a>
       <a href="pages_customer_customer_profile.html">Profile</a>
       <a href="#" id="logout-link">Logout</a>
