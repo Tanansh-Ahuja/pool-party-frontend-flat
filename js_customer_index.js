@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const caloriesElement = document.getElementById("calories");
 
   if (fullName) {
-    greetingContainer.innerHTML = `<h2 class="user-greeting">Hello ${fullName} 👋</h2>`;
+    greetingContainer.innerHTML = `<h2 class="user-greeting">Hello ${fullName} 👋</h2><h4>Customer Id: ${localStorage.getItem("customer_id")}</h4>`;
     swimElement.innerText = swimMins;
     caloriesElement.innerText = (5.75 * parseFloat(swimMins || 0)).toFixed(2);
   }
