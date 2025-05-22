@@ -1,6 +1,8 @@
 import { BASE_URL } from "/js_config.js";
 import { is_token_expired } from "./js_utils_auth.js";
 
+
+
 document.addEventListener("DOMContentLoaded", async () => {
   const token = localStorage.getItem("access_token");
   const adminName = localStorage.getItem("full_name");
@@ -109,10 +111,55 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  const toggle_button = document.getElementById("booking-toggle-btn");
+  let currentBookingStatus;
+  async function fetchAndSetBookingStatus() {
+    try {
+      const res = await fetch(`${BASE_URL}/settings/booking-enabled`);
+      const data = await res.json();
+      currentBookingStatus = data.booking_enabled === true || data.booking_enabled === "true";;// hold the real-time status
+      setToggleButtonUI(currentBookingStatus);
+    } catch (err) {
+      console.error("Error fetching booking status", err);
+      toggle_button.textContent = "Error";
+    }
+  }
+
+  function setToggleButtonUI(isEnabledRaw) {
+    const isEnabled = isEnabledRaw === true || isEnabledRaw === "true";
+    toggle_button.classList.remove("on", "off");
+
+    if (isEnabled) {
+      toggle_button.textContent = "Bookings On";
+      toggle_button.classList.add("on");
+    } else {
+      toggle_button.textContent = "Bookings Off";
+      toggle_button.classList.add("off");
+    }
+  }
+
+  toggle_button.onclick = async () => {
+    const newStatus = !currentBookingStatus;
+    try {
+      const res = await fetch(`${BASE_URL}/settings/booking-enabled/${newStatus}`, {
+        method: "PUT"
+      });
+      const data = await res.json();
+      currentBookingStatus = data.booking_enabled === true || data.booking_enabled === "true";;// hold the real-time status
+      setToggleButtonUI(currentBookingStatus);
+    } catch (err) {
+      console.error("Error toggling booking status", err);
+    }
+  };
+
+
   // Load all dashboard components
+  await fetchAndSetBookingStatus();
   await fetchSummary();
   await fetchNotices();
   await fetchUnpaidBookings();
   await fetchOverstayedBookings();
   await loadChart();
 });
+
+
