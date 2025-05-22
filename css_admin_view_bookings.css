@@ -1,74 +1,152 @@
-body {
-    background-color: #f3f3f3;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
-    padding: 1rem;
-    margin-top: 60px; /* Add a margin top to make space for the fixed navbar */
-    align-items: center;
+:root {
+  --primary: #0077cc;
+  --primary-light: #e6f2fb;
+  --danger: #cc0000;
+  --success: #2e8b57;
+  --gray-light: #f5f5f5;
+  --gray-dark: #444;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: var(--gray-dark);
+  margin: 0;
+  padding: 0;
+}
 
 .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+  padding-top: 80px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--primary);
 }
 
-#booking-date {
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-right: 1rem;
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
-#fetch-bookings-btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+.filter-bar input[type="date"],
+.filter-bar select,
+.filter-bar button {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
-#fetch-bookings-btn:hover {
-    background-color: #0056b3;
+.filter-bar input[type="date"]:focus,
+.filter-bar select:focus {
+  border-color: var(--primary);
 }
 
+.filter-bar button {
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.filter-bar button:hover {
+  background-color: #005fa3;
+}
+
+#bookings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Booking Card */
 .booking-card {
-    background-color: #e6f7ff;
-    border: 1px solid #b3e0ff;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 8px;
+  background-color: var(--primary-light);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border-left: 6px solid var(--primary);
+}
+
+.booking-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--primary);
+  font-size: 1.2rem;
 }
 
 .booking-card p {
-    margin: 0.25rem 0;
+  margin: 0.25rem 0;
+  line-height: 1.4;
 }
 
 .booking-card button {
-    margin: 6px 4px;
-    padding: 6px 12px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  margin-top: 1rem;
+  margin-right: 10px;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.mark-paid-btn {
+  background-color: var(--success);
+  color: white;
+}
+
+.mark-paid-btn:hover {
+  background-color: #226b45;
+}
+
+.cancel-booking-btn {
+  background-color: var(--danger);
+  color: white;
+}
+
+.cancel-booking-btn:hover {
+  background-color: #a30000;
+}
+
+.cancel-booking-btn:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 769px) {
+  .container {
+    padding-top: 80px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  
-  .booking-card button.cancel-booking-btn {
-    background-color: #dc3545;
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  .booking-card button:hover {
-    opacity: 0.9;
+
+  .booking-card {
+    padding: 1rem;
   }
-  
+
+  .booking-card button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}

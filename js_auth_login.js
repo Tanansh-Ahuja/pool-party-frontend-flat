@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         loginPayload.phone_number = uphone;
       }
-      console.log(loginPayload);
       try {
         const response = await fetch(`${BASE_URL}/auth/login`, {
           method: "POST",

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Bookings by Date</title>
-    <link rel="stylesheet" href="css_style.css">
-    <link rel="stylesheet" href="css_admin_view_bookings.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View Bookings by Date</title>
+  <link rel="stylesheet" href="css_style.css" />
+  <link rel="stylesheet" href="css_admin_view_bookings.css" />
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
-    <div class="container">
-        <h1>View Bookings</h1>
-        <input type="date" id="booking-date" />
-        <button id="fetch-bookings-btn" >Fetch Bookings</button>
-
-        <div id="bookings-container"></div>
+  <div id="navbar-placeholder"></div>
+  <div class="container">
+    <h1>View Bookings</h1>
+    <div class="filter-bar">
+      <input type="date" id="booking-date" />
+      <select id="payment-filter">
+        <option value="all">All</option>
+        <option value="paid">Paid</option>
+        <option value="pending">Pending</option>
+      </select>
+      <button id="refresh-bookings-btn">Refresh Bookings</button>
     </div>
-    <script type="module" src="js_components_navbar.js"></script>
-    <script type="module" src="js_admin_view_bookings.js"></script>
+    <div id="bookings-container"></div>
+  </div>
+  <script type="module" src="js_components_navbar.js"></script>
+  <script type="module" src="js_admin_view_bookings.js"></script>
 </body>
 </html>

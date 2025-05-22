@@ -32,7 +32,6 @@ async function fetchNotices(token) {
     try {
       const response = await fetch(`${BASE_URL}/notices/`);
       const data = await response.json();
-      console.log(data);
       noticeList.innerHTML = ""; // Clear old content
   
       if (Array.isArray(data) && data.length > 0) {

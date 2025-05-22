@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (ugender) payload.gender = ugender;
       if (uage) payload.age = parseInt(uage);
 
-      console.log(payload);
       try {
         const response = await fetch(`${BASE_URL}/auth/signup`, {
           method: "POST",

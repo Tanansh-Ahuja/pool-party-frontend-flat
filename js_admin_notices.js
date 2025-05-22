@@ -77,7 +77,6 @@ async function fetchAndRenderNotices() {
     container.innerHTML = "";
 
     notices.forEach(notice => {
-        console.log(notice);
       const card = document.createElement("div");
       card.className = "notice-card";
       card.dataset.noticeId = notice.id;
@@ -124,7 +123,6 @@ async function fetchAndRenderNotices() {
         };
 
         const id = card.dataset.noticeId;
-        console.log(`Notice id: ${id}`);
         const res = await fetch(`${BASE_URL}/notices/${id}`, {
           method: "PUT",
           headers: {

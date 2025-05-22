@@ -108,7 +108,6 @@ submitBookingBtn.addEventListener("click", async () => {
       booking_time: bookingTime,
     });
   });
-  console.log(bookings);
 
   // Submit to backend
   try {

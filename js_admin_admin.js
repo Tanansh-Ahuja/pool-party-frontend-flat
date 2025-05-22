@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function fetchOverstayedBookings() {
   const res = await fetch(`${BASE_URL}/bookings/overstayed`, { headers });
   const bookings = await res.json();
-  console.log(bookings);
   const container = document.getElementById("overstayed-bookings-list");
   container.innerHTML = "";
   bookings.forEach(booking => {
@@ -73,7 +72,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function loadChart() {
     const res = await fetch(`${BASE_URL}/payments/revenue-chart`, { headers });
     const chartData = await res.json();
-    console.log(chartData);
     const ctx = document.getElementById("revenue-chart").getContext("2d");
     new Chart(ctx, {
       type: 'line',
