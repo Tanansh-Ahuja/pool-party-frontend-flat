@@ -44,6 +44,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       container.appendChild(div);
     });
   }
+  async function fetchBlockedDates() {
+    const res = await fetch(`${BASE_URL}/blocked-dates/`, { headers });
+    const blocked_dates = await res.json();
+    const container = document.getElementById("blocked-list");
+    container.innerHTML = "";
+    blocked_dates.forEach(blocked_ele => {
+      const div = document.createElement("div");
+      div.className = "blocked-card";
+      div.innerHTML = `<strong>Date: ${blocked_ele.blocked_date}</strong><p>Start time: ${blocked_ele.start_time}<br> End Time: ${blocked_ele.end_time} <br>Reason: ${blocked_ele.reason}</p>`;
+      container.appendChild(div);
+    });
+  }
 
   async function fetchUnpaidBookings() {
     const res = await fetch(`${BASE_URL}/bookings/unpaid`, { headers });
@@ -157,6 +169,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await fetchAndSetBookingStatus();
   await fetchSummary();
   await fetchNotices();
+  await fetchBlockedDates();
   await fetchUnpaidBookings();
   await fetchOverstayedBookings();
   await loadChart();

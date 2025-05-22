@@ -68,7 +68,7 @@ section {
   margin-bottom: 40px;
 }
 
-#notices-list,
+#notices-list,#blocked-list,
 #unpaid-bookings-list,
 #recent-bookings-list {
   display: flex;
@@ -81,6 +81,14 @@ section {
   background: #ffffff;
   padding: 15px;
   border-left: 4px solid #0d6efd;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+.blocked-card{
+  background: #ffffff;
+  padding: 15px;
+  border-left: 4px solid #e20202;
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(0,0,0,0.05);
 }

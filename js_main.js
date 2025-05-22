@@ -13,6 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+async function fetchBlockedDates() {
+    const res = await fetch(`${BASE_URL}/blocked-dates/`);
+    const blocked_dates = await res.json();
+    const container = document.getElementById("blocked-list");
+    container.innerHTML = "";
+    blocked_dates.forEach(blocked_ele => {
+      const div = document.createElement("div");
+      div.className = "blocked-card";
+      div.innerHTML = `<strong>Date: ${blocked_ele.blocked_date}</strong><p>Start time: ${blocked_ele.start_time}<br> End Time: ${blocked_ele.end_time} <br>Reason: ${blocked_ele.reason}</p>`;
+      container.appendChild(div);
+    });
+  }
+
 async function loadNotices() {
   const noticeList = document.getElementById("notice-list");
   noticeList.innerHTML = "<li>Loading notices...</li>";
@@ -47,3 +60,4 @@ async function loadNotices() {
 }
 
 document.addEventListener("DOMContentLoaded", loadNotices);
+document.addEventListener("DOMContentLoaded", fetchBlockedDates);

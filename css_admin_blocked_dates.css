@@ -1,0 +1,108 @@
+.blocked-dates-container {
+  max-width: 800px;
+  margin: auto;
+  padding-top: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.hidden {
+  display: none !important;
+}
+#create-blocked-btn {
+  background-color: #0d6efd;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#create-blocked-btn:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-1px);
+}
+
+#create-blocked-btn:active {
+  background-color: #0a58ca;
+  transform: scale(0.98);
+}
+
+
+#blocked-date-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#blocked-date-form input,
+#blocked-date-form select,
+#blocked-date-form textarea {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#submit-blocked-btn {
+  width: 150px;
+  padding: 10px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.blocked-card {
+  background: #f9f9f9;
+  border-left: 4px solid #dc3545;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 15px 0;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+.blocked-card input,
+.blocked-card select,
+.blocked-card textarea {
+  padding: 5px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.card-buttons button {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-buttons .edit {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.card-buttons .delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.card-buttons .update {
+  background-color: #28a745;
+  color: white;
+}

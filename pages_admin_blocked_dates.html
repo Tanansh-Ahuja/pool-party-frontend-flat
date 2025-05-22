@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blocked Dates Management</title>
+  <link rel="stylesheet" href="css_style.css" />
+  <link rel="stylesheet" href="css_admin_blocked_dates.css" />
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <div class="blocked-dates-container">
+    <h2>Manage Blocked Dates</h2>
+
+    <button id="create-blocked-btn">Create Blocked Date</button>
+
+    <div id="blocked-date-form" class="hidden">
+      <input type="date" id="blocked-date" />
+      <select id="start-time"></select>
+      <select id="end-time"></select>
+      <textarea id="reason" placeholder="Reason for blocking..."></textarea>
+      <button id="submit-blocked-btn">Submit</button>
+    </div>
+
+    <h3>Existing Blocked Dates</h3>
+    <div id="blocked-dates-list"></div>
+  </div>
+
+  <script type="module" src="js_components_navbar.js"></script>
+  <script type="module" src="js_admin_blocked_dates.js"></script>
+</body>
+</html>

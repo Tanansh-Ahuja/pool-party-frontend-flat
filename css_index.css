@@ -83,6 +83,8 @@
 
 /* Notices */
 .notices {
+  margin-left: 2px;
+  margin-right: 2px;
   background-color: #fff7e6;
   border-left: 4px solid #ffa500;
   margin-top: 30px;
@@ -120,7 +122,40 @@
 }
 
 
+/* Blocked Dates */
 
+.blocked-section{
+  margin-top: 2rem;
+}
+.blocked-section h2{
+margin-left: 3rem;
+margin-bottom: 1rem;
+}
+
+#blocked-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.blocked-card{
+  margin-right: 2px;
+  margin-left: 2px;
+  background: #e4a9a963;
+  padding: 15px;
+  border-left: 4px solid #e20202;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  padding-left: 80px !important;
+}
+@media (max-width: 769px) {
+  .blocked-section h2{
+margin-left:20px;
+margin-bottom: 1rem;
+}
+.blocked-card{
+  padding-left: 50px !important;
+}
+}
 /* Gallery */
 .gallery {
   margin: 20px;
