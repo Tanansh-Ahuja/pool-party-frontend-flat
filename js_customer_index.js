@@ -60,7 +60,10 @@ async function fetchNotices(token) {
 
 async function fetchBookings(token) {
   try {
-    const res = await fetch(`${BASE_URL}/bookings/upcoming`, {
+    const page = 0;
+    const limit = 10;
+    const skip = page * limit;
+    const res = await fetch(`${BASE_URL}/bookings/customer/me?skip=${skip}&limit=${limit}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
