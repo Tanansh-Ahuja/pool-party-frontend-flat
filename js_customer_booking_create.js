@@ -80,10 +80,16 @@ submitBookingBtn.addEventListener("click", async () => {
 
   const cards = document.querySelectorAll(".customer-card");
   const bookings = [];
-
+  let hasEmptyName=false;
   cards.forEach((card) => {
     const customerId = parseInt(card.querySelector(".customer-id").value) || localStorage.getItem("customer_id");
     const fullName = card.querySelector(".full-name").value.trim();
+    // 🚨 Name cannot be empty
+    if (!fullName) {
+      alert("Customer name cannot be empty.");
+      hasEmptyName=true;
+      return; // skip this card
+    }
     const uage = parseInt(card.querySelector(".age").value) || 0;
     const ugender = card.querySelector(".gender").value;
     const needsSwimwear = card.querySelector(".needs-swimwear").value === "Yes";
@@ -109,6 +115,11 @@ submitBookingBtn.addEventListener("click", async () => {
     });
   });
 
+  if(hasEmptyName)
+  {
+    alert("Booking un-successfull");
+    return;
+  }
   // Submit to backend
   try {
     const token = localStorage.getItem("access_token");
